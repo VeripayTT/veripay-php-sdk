@@ -1,0 +1,32 @@
+{
+    "name": "veripaytt/veripay-php-sdk",
+    "description": "Official VeriPay PHP SDK",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["veripay","payments","sdk","laravel","php"],
+    "homepage": "https://veripay.us/developers",
+    "support": {
+      "issues": "https://github.com/veripaytt/veripay-php-sdk/issues",
+      "source": "https://github.com/veripaytt/veripay-php-sdk"
+    },
+    "autoload": {
+        "psr-4": {
+            "VeripayTT\\SDK\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.0",
+        "psr/log": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VeripayTT\\SDK\\Laravel\\VeriPayServiceProvider"
+            ]
+        }
+    }
+}
