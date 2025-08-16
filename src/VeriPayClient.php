@@ -48,11 +48,21 @@ class VeriPayClient
         $this->logger = $logger;
 
         $this->config = array_merge([
-            'base_url' => 'https://api.veripay.us',
+            'base_urls' => [
+                'production' => 'https://api.veripay.us',
+                'staging'    => 'https://staging-api.veripay.us',
+                'sandbox'    => 'https://sandbox-api.veripay.us',
+            ],
+            'environment' => 'production',
             'log_requests' => false,
             'retry_times' => 3,
             'retry_delay' => 100,
         ], $config);
+
+        if (!isset($this->config['base_url'])) {
+            $env = $this->config['environment'];
+            $this->config['base_url'] = $this->config['base_urls'][$env] ?? $this->config['base_urls']['production'];
+        }
 
         $this->httpClient = new Client([
             'base_uri' => $this->config['base_url'],
