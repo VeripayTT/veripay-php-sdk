@@ -15,18 +15,18 @@ class PaymentLinks
 
     public function create(array $data): array
     {
-        return $this->client->request('POST', '/v1/payment-links', [
+        return $this->client->request('POST', 'v1/payment-links', [
             'json' => $data
         ]);
     }
 
     public function list(): array
     {
-        return $this->client->request('GET', '/v1/payment-links');
+        return $this->client->request('GET', 'v1/payment-links');
     }
 
     public function get(string $linkId): array
     {
-        return $this->client->request('GET', "/v1/payment-links/{$linkId}");
+        return $this->client->request('GET', "v1/payment-links/{$linkId}");
     }
 }
