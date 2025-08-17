@@ -15,17 +15,17 @@ class Payments
 
     public function list(): array
     {
-        return $this->client->request('GET', '/v1/payments');
+        return $this->client->request('GET', '/api/v1/payments');
     }
 
     public function getStatus(string $paymentId): array
     {
-        return $this->client->request('GET', "/v1/payments/{$paymentId}/status");
+        return $this->client->request('GET', "/api/v1/payments/{$paymentId}/status");
     }
 
     public function submitProof(string $paymentId, array $data): array
     {
-        return $this->client->request('POST', "/v1/payments/{$paymentId}/proof", [
+        return $this->client->request('POST', "/api/v1/payments/{$paymentId}/proof", [
             'json' => $data
         ]);
     }
