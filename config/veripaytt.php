@@ -14,5 +14,5 @@ return [
 
     'log_requests' => env('VERIPAY_LOG_REQUESTS', false),
     'retry_times'  => env('VERIPAY_RETRY_TIMES', 3),
-    'retry_delay'  => env('VERIPAY_RETRY_DELAY', 100), // milliseconds
+    'retry_delay'  => env('VERIPAY_RETRY_DELAY', 1000), 
 ];
